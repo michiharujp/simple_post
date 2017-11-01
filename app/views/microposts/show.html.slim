@@ -1,1 +1,4 @@
-= render @microposts
+h1 = @micropost.title
+= link_to "編集する", edit_micropost_path
+= link_to "削除する", @micropost, method: :delete, data: { confirm: "本当に削除しますか？" }
+div = @micropost.content

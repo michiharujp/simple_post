@@ -1,4 +1,6 @@
 50.times do
-  content = Faker::Lorem.sentence(10)
-  Micropost.create!(content: content)
+  title = Faker::Lorem.sentence(10)
+  content = Faker::Lorem.sentence(200)
+  Micropost.create!(title: title,
+                    content: content)
 end
