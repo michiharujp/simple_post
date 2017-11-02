@@ -1,0 +1,18 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$light-green: #79b74a;
+
+body {
+  padding-top: 60px;
+}
+
+#comments {
+  padding-top: 20px;
+  .edit-icon {
+    cursor: pointer;
+    &:hover {
+      color: $light-green;
+    }
+  }
+}

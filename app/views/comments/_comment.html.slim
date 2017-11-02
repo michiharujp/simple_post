@@ -1,0 +1,6 @@
+.well.well-sm id="comment-#{comment.id}"
+  span.content = comment.content
+  .pull-right.edit-action
+    i.fa.fa-pencil-square-o.fa-lg.edit-icon aria-hidden="true"
+  .edit-form.hidden
+    = render 'comments/form' , { comment: comment, button_string: "更新する" }

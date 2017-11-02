@@ -1,0 +1,9 @@
+ja:
+  activerecord:
+    models:
+      micropost: 投稿
+    attributes:
+      micropost:
+        title: タイトル
+        content: 本文
+
