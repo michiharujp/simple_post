@@ -1,3 +1,5 @@
 h1 投稿記事一覧
-= link_to "新規作成", new_micropost_path
-= render @microposts
+.actions.clearfix
+  = link_to "新規作成", new_micropost_path, class: "btn btn-primary pull-right"
+ul.list-group
+  = render @microposts

@@ -35,7 +35,7 @@ class MicropostsController < ApplicationController
     else
       flash[:danger]  = "編集に失敗しました"
     end
-    redirect_to root_path
+    redirect_to @micropost
   end
 
   def destroy

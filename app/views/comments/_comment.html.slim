@@ -1,4 +1,6 @@
-div id="comment-#{comment.id}"
+.well.well-sm id="comment-#{comment.id}"
   span.content = comment.content
-  = link_to "削除", [@micropost, comment], method: :delete, data: { confirm: "本当に削除しますか？" }
-  = render 'comments/edit_form' , comment: comment
+  .pull-right.edit-action
+    i.fa.fa-pencil-square-o.fa-lg.edit-icon aria-hidden="true"
+  .edit-form.hidden
+    = render 'comments/edit_form' , comment: comment
