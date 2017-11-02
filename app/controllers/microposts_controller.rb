@@ -4,7 +4,6 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @debug = Comment.all
     @micropost = Micropost.find(params[:id])
     @comment = @micropost.comments.build
     @comments = @micropost.comments.includes(:micropost)
@@ -32,10 +31,10 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.find(params[:id])
     if @micropost.update(micropost_params)
       flash[:success] = "正常に編集されました"
+      redirect_to @micropost
     else
-      flash[:danger]  = "編集に失敗しました"
+      render :edit
     end
-    redirect_to @micropost
   end
 
   def destroy
