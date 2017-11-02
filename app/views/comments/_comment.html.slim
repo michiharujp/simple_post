@@ -3,4 +3,4 @@
   .pull-right.edit-action
     i.fa.fa-pencil-square-o.fa-lg.edit-icon aria-hidden="true"
   .edit-form.hidden
-    = render 'comments/edit_form' , comment: comment
+    = render 'comments/form' , { comment: comment, button_string: "更新する" }

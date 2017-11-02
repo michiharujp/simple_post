@@ -1,6 +1,0 @@
-= form_for([@micropost, comment]) do |f|
-  = render 'shared/error_messages', object: f.object
-  .form-group
-    = f.text_field :content, class: "form-control"
-  = f.submit "コメントを更新する", class: "btn btn-primary"
-  = link_to "削除", [@micropost, comment], class: "btn btn-warning pull-right", method: :delete, data: { confirm: "本当に削除しますか？" }

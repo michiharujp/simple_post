@@ -13,7 +13,7 @@
       span 削除する
 
 h2 コメント一覧
-= render 'comments/form'
+= render 'comments/form', { comment: @comment, button_string: "コメントする" }
 - if @comments.any?
   #comments
     = render @comments
