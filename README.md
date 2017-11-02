@@ -1,4 +1,4 @@
-# Blog on Rails
+# simple post
 
 ## 機能要求
 - ブログ記事が作成できる

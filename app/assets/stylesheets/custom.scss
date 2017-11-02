@@ -7,9 +7,12 @@ body {
   padding-top: 60px;
 }
 
-.edit-icon {
-  cursor: pointer;
-  &:hover {
-    color: $light-green;
+#comments {
+  padding-top: 20px;
+  .edit-icon {
+    cursor: pointer;
+    &:hover {
+      color: $light-green;
+    }
   }
 }
