@@ -6,7 +6,7 @@ class MicropostsController < ApplicationController
   end
 
   def show
-    @comment = @micropost.comments.build
+    @comment = Comment.new
     @comments = @micropost.comments.includes(:micropost)
   end
 
@@ -40,7 +40,7 @@ class MicropostsController < ApplicationController
     if @micropost.destroy
       flash[:success] = "正常に削除されました"
     else
-      flash[:danger] = "削除に失敗しました"
+      flash[:error] = "削除に失敗しました"
     end
     redirect_to root_path
   end

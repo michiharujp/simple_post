@@ -5,10 +5,10 @@
 
 .micropost-action.clearfix
   .pull-right
-    = link_to( edit_micropost_path, class: "btn btn-success" ) do
+    = link_to edit_micropost_path, class: "btn btn-success"
       i.fa.fa-pencil aria-hidden="true"
       span 編集する
-    = link_to( @micropost, class: "btn btn-warning", method: :delete, data: { confirm: "本当に削除しますか？" } )
+    = link_to @micropost, class: "btn btn-warning", method: :delete, data: { confirm: "本当に削除しますか？" }
       i.fa.fa-times aria-hidden="true"
       span 削除する
 
