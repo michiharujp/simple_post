@@ -18,10 +18,10 @@ class MicropostsController < ApplicationController
     @micropost = Micropost.new(micropost_params)
     if @micropost.save
       flash[:success] = "正常に投稿されました"
+      redirect_to @micropost
     else
-      flash[:danger]  = "投稿に失敗しました"
+      render :new
     end
-    redirect_to root_path
   end
 
   def edit

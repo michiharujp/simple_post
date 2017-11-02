@@ -1,5 +1,7 @@
 = form_for([@micropost, @comment]) do |f|
+  = render 'shared/error_messages', object: f.object
+
   .form-group
-    = f.label :content
+    = f.label :content, "コメント"
     = f.text_field :content, class: "form-control"
   = f.submit "コメントする", class: "btn btn-primary"
