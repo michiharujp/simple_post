@@ -1,10 +1,11 @@
 class MicropostsController < ApplicationController
+  before_action :set_micropost, only: [:show, :edit, :update, :destroy]
+
   def index
     @microposts = Micropost.all
   end
 
   def show
-    @micropost = Micropost.find(params[:id])
     @comment = @micropost.comments.build
     @comments = @micropost.comments.includes(:micropost)
   end
@@ -24,11 +25,9 @@ class MicropostsController < ApplicationController
   end
 
   def edit
-    @micropost = Micropost.find(params[:id])
   end
 
   def update
-    @micropost = Micropost.find(params[:id])
     if @micropost.update(micropost_params)
       flash[:success] = "正常に編集されました"
       redirect_to @micropost
@@ -38,7 +37,6 @@ class MicropostsController < ApplicationController
   end
 
   def destroy
-    @micropost = Micropost.find(params[:id])
     if @micropost.destroy
       flash[:success] = "正常に削除されました"
     else
@@ -50,6 +48,10 @@ class MicropostsController < ApplicationController
   private
     def micropost_params
       params.require(:micropost).permit(:title, :content)
+    end
+
+    def set_micropost
+      @micropost = Micropost.find(params[:id])
     end
 
 end

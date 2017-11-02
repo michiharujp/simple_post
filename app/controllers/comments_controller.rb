@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
+  before_action :set_micropost
+  before_action :set_comment, only: [:update, :destroy]
 
   def update
-    @comment = Comment.find(params[:id])
-    @micropost = Micropost.find(params[:micropost_id])
     if @comment.update(comment_params)
       flash[:success] = "正常に更新されました"
     else
@@ -12,7 +12,6 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @micropost = Micropost.find(params[:micropost_id])
     if @micropost.comments.build(comment_params).save
       flash[:success] = "コメントしました"
     else
@@ -22,8 +21,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @micropost = Micropost.find(params[:micropost_id])
-    @comment = Comment.find(params[:id])
     if @comment.destroy
       flash[:success] = "コメントを削除しました"
     else
@@ -35,6 +32,14 @@ class CommentsController < ApplicationController
   private
     def comment_params
       params.require(:comment).permit(:content)
+    end
+
+    def set_micropost
+      @micropost = Micropost.find(params[:micropost_id])
+    end
+
+    def set_comment
+      @comment = Comment.find(params[:id])
     end
 
 end
