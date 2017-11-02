@@ -1,4 +1,13 @@
 h1 = @micropost.title
-= link_to "編集する", edit_micropost_path
-= link_to "削除する", @micropost, method: :delete, data: { confirm: "本当に削除しますか？" }
-div = @micropost.content
+p = @micropost.content
+.act = link_to "編集する", edit_micropost_path
+.act = link_to "削除する", @micropost, method: :delete, data: { confirm: "本当に削除しますか？" }
+.act = link_to "トップに戻る", root_path
+
+h2 コメント一覧
+= render 'comments/form'
+- if @comments.any?
+  #comments
+    = render @comments
+- else
+  h3 コメントはありません

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  resources :microposts
+  resources :microposts do
+    resources :comments
+  end
   root 'microposts#index'
 end

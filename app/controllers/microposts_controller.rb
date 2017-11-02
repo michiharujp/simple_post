@@ -4,7 +4,10 @@ class MicropostsController < ApplicationController
   end
 
   def show
+    @debug = Comment.all
     @micropost = Micropost.find(params[:id])
+    @comment = @micropost.comments.build
+    @comments = @micropost.comments.includes(:micropost)
   end
 
   def new
@@ -16,7 +19,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       flash[:success] = "正常に投稿されました"
     else
-      flash[:danger] = "投稿に失敗しました"
+      flash[:danger]  = "投稿に失敗しました"
     end
     redirect_to root_path
   end
@@ -30,7 +33,7 @@ class MicropostsController < ApplicationController
     if @micropost.update(micropost_params)
       flash[:success] = "正常に編集されました"
     else
-      flash[:danger] = "編集に失敗しました"
+      flash[:danger]  = "編集に失敗しました"
     end
     redirect_to root_path
   end
